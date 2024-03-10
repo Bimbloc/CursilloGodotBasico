@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://u4ik18gr084i"]
+
+[ext_resource type="PackedScene" uid="uid://cbwwe7j1vmiee" path="res://assets/donut.glb" id="1_2ixt8"]
+[ext_resource type="Script" path="res://prefabs/donut.gd" id="1_iq4nw"]
+[ext_resource type="Script" path="res://prefabs/DonutCollider.gd" id="3_amhso"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hwmf7"]
+
+[node name="donut" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_iq4nw")
+
+[node name="donut" parent="RigidBody3D" instance=ExtResource("1_2ixt8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.588, 0, 0, 0, 0.058, 0, 0, 0, 0.588, 0.0148822, 0.0272174, 0.00176737)
+shape = SubResource("CylinderShape3D_hwmf7")
+script = ExtResource("3_amhso")
+
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]

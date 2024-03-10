@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4m6pudsa6pmk"]
+
+[ext_resource type="PackedScene" uid="uid://bq3aw2iuynj0a" path="res://assets/trashcan.glb" id="1_1cof8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6a23o"]
+height = 2.18467
+radius = 0.858783
+
+[node name="trashcan" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19824, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197777, -0.705769, 0.00489181)
+shape = SubResource("CylinderShape3D_6a23o")
+
+[node name="trashcan" parent="StaticBody3D/CollisionShape3D" instance=ExtResource("1_1cof8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.197777, 0.705769, -0.00489181)

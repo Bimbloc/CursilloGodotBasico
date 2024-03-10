@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpdjc12k5jgog"]
+
+[ext_resource type="PackedScene" uid="uid://bqu7vpb4eotv3" path="res://assets/streetlight.glb" id="1_o4sws"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mhnlu"]
+height = 10.5294
+
+[node name="Farol" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07)
+
+[node name="streetlight" parent="StaticBody3D" instance=ExtResource("1_o4sws")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.55627, 0.164711)
+shape = SubResource("CylinderShape3D_mhnlu")
